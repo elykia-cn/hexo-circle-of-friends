@@ -47,11 +47,17 @@ app.add_middleware(
 
 # 读取 apidoc.md 文件的内容
 def read_apidoc():
-    file_path = "path/to/your/apidoc.md"  # 替换为你的实际路径
+    file_path = "/apidoc.md"  # 替换为你的实际路径
     if not os.path.exists(file_path):
         raise HTTPException(status_code=404, detail="API 文档未找到")
     with open(file_path, "r", encoding="utf-8") as f:
         return f.read()
+
+@app.get("/", tags=["PUBLIC_API"], summary="返回所有友链")
+def friend():
+    """返回数据库友链列表
+    """
+    return query_friend()
 
 @app.get("/apidoc", tags=["PUBLIC_API"], summary="返回 API 文档")
 async def get_apidoc():
