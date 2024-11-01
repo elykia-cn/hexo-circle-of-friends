@@ -45,6 +45,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# 读取 apidoc.md 文件的内容
+def read_apidoc():
+    file_path = "path/to/your/apidoc.md"  # 替换为你的实际路径
+    if not os.path.exists(file_path):
+        raise HTTPException(status_code=404, detail="API 文档未找到")
+    with open(file_path, "r", encoding="utf-8") as f:
+        return f.read()
+
+@app.get("/apidoc", tags=["PUBLIC_API"], summary="返回 API 文档")
+async def get_apidoc():
+    """返回 API 文档内容
+    """
+    content = read_apidoc()
+    return HTMLResponse(content=content)
 
 @app.get("/all", tags=["PUBLIC_API"], summary="返回完整统计信息")
 def all(start: int = 0, end: int = -1, rule: str = "updated"):
