@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 接口说明</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px; /* 设置最大宽度 */
+            margin: 0 auto;   /* 居中对齐 */
+            padding: 20px;    /* 内边距 */
+            background-color: #fff; /* 背景色 */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            color: #007BFF;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        p {
+            color: #555;
+            margin: 10px 0;
+        }
+
+        strong {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>API 接口说明</h1>
+
+    <h2>/all</h2>
+    <p><strong>描述：</strong>返回数据库统计信息和文章信息列表。</p>
+    <p><strong>请求方式：</strong>GET</p>
+    <p><strong>请求参数说明：</strong></p>
+    <table>
+        <thead>
+            <tr>
+                <th align="left">字段名</th>
+                <th align="left">字段说明</th>
+                <th align="left">字段类型</th>
+                <th>默认值</th>
+                <th align="left">是否必填</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="left">start</td>
+                <td align="left">文章信息列表从按rule排序后的顺序的开始位置</td>
+                <td align="left">integer</td>
+                <td>0</td>
+                <td align="left">否</td>
+            </tr>
+            <tr>
+                <td align="left">end</td>
+                <td align="left">文章信息列表从按rule排序后的顺序的结束位置</td>
+                <td align="left">integer</td>
+                <td>-1</td>
+                <td align="left">否</td>
+            </tr>
+            <tr>
+                <td align="left">rule</td>
+                <td align="left">文章排序规则（创建时间created/更新时间updated）</td>
+                <td align="left">string</td>
+                <td>updated</td>
+                <td align="left">否</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>/friend</h2>
+    <p><strong>描述：</strong>返回数据库所有友链</p>
+    <p><strong>请求方式：</strong>GET</p>
+    <p><strong>请求参数说明：</strong>无参数。</p>
+
+    <h2>/randomfriend</h2>
+    <p><strong>描述：</strong>从数据库随机返回指定个数个友链</p>
+    <p><strong>请求方式：</strong>GET</p>
+    <table>
+        <thead>
+            <tr>
+                <th align="left">字段名</th>
+                <th align="left">字段说明</th>
+                <th align="left">字段类型</th>
+                <th>默认值</th>
+                <th align="left">是否必填</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="left">num</td>
+                <td align="left">返回num个友链信息</td>
+                <td align="left">integer</td>
+                <td>1</td>
+                <td align="left">否</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>/randompost</h2>
+    <p><strong>描述：</strong>随机返回指定个数篇文章信息</p>
+    <p><strong>请求方式：</strong>GET</p>
+    <table>
+        <thead>
+            <tr>
+                <th align="left">字段名</th>
+                <th align="left">字段说明</th>
+                <th align="left">字段类型</th>
+                <th>默认值</th>
+                <th align="left">是否必填</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="left">num</td>
+                <td align="left">返回num篇文章信息</td>
+                <td align="left">integer</td>
+                <td>1</td>
+                <td align="left">否</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>/post</h2>
+    <p><strong>描述：</strong>指定一个链接，返回该链接的数据库内文章信息列表</p>
+    <p><strong>请求方式：</strong>GET</p>
+    <table>
+        <thead>
+            <tr>
+                <th align="left">字段名</th>
+                <th align="left">字段说明</th>
+                <th align="left">字段类型</th>
+                <th>默认值</th>
+                <th align="left">是否必填</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="left">link</td>
+                <td align="left">链接地址，如果为None，则随机返回一个友链的文章</td>
+                <td align="left">string</td>
+                <td>None</td>
+                <td align="left">否</td>
+            </tr>
+            <tr>
+                <td align="left">num</td>
+                <td align="left">指定链接的文章信息列表按rule排序后的顺序的前num篇</td>
+                <td align="left">integer</td>
+                <td>-1</td>
+                <td align="left">否</td>
+            </tr>
+            <tr>
+                <td align="left">rule</td>
+                <td align="left">文章排序规则（创建时间created/更新时间updated）</td>
+                <td align="left">string</td>
+                <td>created</td>
+                <td align="left">否</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>/friendstatus</h2>
+    <p><strong>描述：</strong>按照指定时间划分失联/未失联的友链信息，默认距离今天2个月以上（60天以上）判定为失联友链。</p>
+    <p>判断逻辑是根据数据库中保存的文章进行判断，比如：某个友链在数据库中<strong>没有保存任何一篇</strong>文章，则会将其归类为失联友链。</p>
+    <p><strong>请求方式：</strong>GET</p>
+    <table>
+        <thead>
+            <tr>
+                <th align="left">字段名</th>
+                <th align="left">字段说明</th>
+                <th align="left">字段类型</th>
+                <th>默认值</th>
+                <th align="left">是否必填</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="left">days</td>
+                <td align="left">天数，默认为60天，取自配置文件中的<code>OUTDATE_CLEAN</code></td>
+                <td align="left">integer</td>
+                <td>60</td>
+                <td align="left">否</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>/postjson</h2>
+    <p><strong>描述：</strong>获取<strong>公共库</strong>中指定链接列表的文章信息列表</p>
+    <p><strong>请求方式：</strong>GET</p>
+    <table>
+        <thead>
+            <tr>
+                <th align="left">字段名</th>
+                <th align="left">字段说明</th>
+                <th align="left">字段类型</th>
+                <th>默认值</th>
+                <th align="left">是否必填</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="left">jsonlink</td>
+                <td align="left">友链链接json的cdn地址</td>
+                <td align="left">string</td>
+                <td>无</td>
+                <td align="left">是</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
