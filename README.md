@@ -4,7 +4,6 @@
 
 由于此项目年久失修，CC建议您尽快迁移至轻量级朋友圈 -> [Friend-Circle-Lite](https://github.com/willow-god/Friend-Circle-Lite) | [文档](https://blog.liushen.fun/posts/4dc716ec/)
 
-<!--
 
 你是否经常烦恼于友链过多但没有时间浏览？那么友链朋友圈将解决这一痛点。你可以随时获取友链网站的更新内容，并了解友链的活跃情况。
 
@@ -37,5 +36,3 @@
 ```
 
 [![Stargazers over time](https://starchart.cc/Rock-Candy-Tea/hexo-circle-of-friends.svg)](https://starchart.cc/Rock-Candy-Tea/hexo-circle-of-friends)
-
--->
