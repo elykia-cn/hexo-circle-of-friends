@@ -1,11 +1,6 @@
 {
   "version": 2,
   "public": true,
-  "build": {
-    "env": {
-      "PYTHON_VERSION": "3.11"
-    }
-  }
   "rewrites": [
     {
       "source": "/(.*)",
@@ -30,10 +25,5 @@
         }
       ]
     }
-  ],
-  "build": {
-    "env": {
-      "PYTHON_VERSION": "3.11"
-    }
-  }
+  ]
 }
