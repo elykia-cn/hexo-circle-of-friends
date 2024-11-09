@@ -2,18 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/main.py",  // 确保这是你的入口 Python 文件路径
+      "src": "api/main.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",  // 确保所有请求都转发到 Python 处理函数
+      "src": "/(.*)",
       "dest": "/api/main.py"
     }
   ],
   "env": {
-    "PYTHON_VERSION": "3.12"  // 确保指定了正确的 Python 版本
+    "PYTHON_VERSION": "3.12"
   },
   "headers": [
     {
@@ -21,7 +21,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "*"  // CORS 允许所有来源，建议只在开发时使用
+          "value": "*"
         },
         {
           "key": "Access-Control-Allow-Methods",
