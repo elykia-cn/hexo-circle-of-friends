@@ -1,29 +1,38 @@
 {
   "version": 2,
-  "public": true,
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/api/main.py"
+      "src": "api/main.py",  // 确保这是你的入口 Python 文件路径
+      "use": "@vercel/python"
     }
   ],
+  "routes": [
+    {
+      "src": "/(.*)",  // 确保所有请求都转发到 Python 处理函数
+      "dest": "/api/main.py"
+    }
+  ],
+  "env": {
+    "PYTHON_VERSION": "3.12"  // 确保指定了正确的 Python 版本
+  },
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "*"
+          "value": "*"  // CORS 允许所有来源，建议只在开发时使用
         },
         {
           "key": "Access-Control-Allow-Methods",
-          "value": "*"
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
         },
         {
           "key": "Access-Control-Allow-Headers",
-          "value": "*"
+          "value": "Content-Type, Authorization"
         }
       ]
     }
   ]
 }
+
