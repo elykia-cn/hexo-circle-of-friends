@@ -50,7 +50,7 @@ app.add_middleware(
 async def read_index():
     """返回 index.html 内容
     """
-    return FileResponse("api接口说明.html") 
+    return FileResponse("index.html") 
 
 @app.get("/all", tags=["PUBLIC_API"], summary="返回完整统计信息")
 def all(start: int = 0, end: int = -1, rule: str = "updated"):
