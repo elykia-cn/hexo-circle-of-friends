@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./fcircle.png" type="image/png">
     <title>API 接口说明</title>
+    <link rel="icon" href="./fcircle.png" type="image/png"> <!-- 添加 favicon -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -32,6 +32,11 @@
             border-bottom: 2px solid #007BFF;
             padding-bottom: 5px;
             margin-top: 30px;
+        }
+
+        h2 a {
+            text-decoration: none;
+            color: #007BFF;
         }
 
         p {
@@ -91,7 +96,7 @@
 <div class="container">
     <h1>API 接口说明</h1>
 
-    <h2>/all</h2>
+    <h2><a href="https://friends.elykia.cn/all">/all</a></h2>
     <p><strong>描述：</strong>返回数据库统计信息和文章信息列表。</p>
     <p><strong>请求方式：</strong>GET</p>
     <p><strong>请求参数说明：</strong></p>
@@ -130,12 +135,12 @@
         </tbody>
     </table>
 
-    <h2>/friend</h2>
+    <h2><a href="https://friends.elykia.cn/friend">/friend</a></h2>
     <p><strong>描述：</strong>返回数据库所有友链</p>
     <p><strong>请求方式：</strong>GET</p>
     <p><strong>请求参数说明：</strong>无参数。</p>
 
-    <h2>/randomfriend</h2>
+    <h2><a href="https://friends.elykia.cn/randomfriend">/randomfriend</a></h2>
     <p><strong>描述：</strong>从数据库随机返回指定个数个友链</p>
     <p><strong>请求方式：</strong>GET</p>
     <table>
@@ -159,7 +164,7 @@
         </tbody>
     </table>
 
-    <h2>/randompost</h2>
+    <h2><a href="https://friends.elykia.cn/randompost">/randompost</a></h2>
     <p><strong>描述：</strong>随机返回指定个数篇文章信息</p>
     <p><strong>请求方式：</strong>GET</p>
     <table>
@@ -183,7 +188,7 @@
         </tbody>
     </table>
 
-    <h2>/post</h2>
+    <h2><a href="https://friends.elykia.cn/post">/post</a></h2>
     <p><strong>描述：</strong>指定一个链接，返回该链接的数据库内文章信息列表</p>
     <p><strong>请求方式：</strong>GET</p>
     <table>
@@ -221,7 +226,7 @@
         </tbody>
     </table>
 
-    <h2>/friendstatus</h2>
+    <h2><a href="https://friends.elykia.cn/friendstatus">/friendstatus</a></h2>
     <p><strong>描述：</strong>按照指定时间划分失联/未失联的友链信息，默认距离今天2个月以上（60天以上）判定为失联友链。</p>
     <p>判断逻辑是根据数据库中保存的文章进行判断，比如：某个友链在数据库中<strong>没有保存任何一篇</strong>文章，则会将其归类为失联友链。</p>
     <p><strong>请求方式：</strong>GET</p>
@@ -238,34 +243,10 @@
         <tbody>
             <tr>
                 <td align="left">days</td>
-                <td align="left">天数，默认为60天，取自配置文件中的<code>OUTDATE_CLEAN</code></td>
+                <td align="left">失联友链判定的时间，单位：天。默认值为60天，表示60天内没有文章发布的为失联。</td>
                 <td align="left">integer</td>
                 <td>60</td>
                 <td align="left">否</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>/postjson</h2>
-    <p><strong>描述：</strong>获取<strong>公共库</strong>中指定链接列表的文章信息列表</p>
-    <p><strong>请求方式：</strong>GET</p>
-    <table>
-        <thead>
-            <tr>
-                <th align="left">字段名</th>
-                <th align="left">字段说明</th>
-                <th align="left">字段类型</th>
-                <th>默认值</th>
-                <th align="left">是否必填</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td align="left">jsonlink</td>
-                <td align="left">友链链接json的cdn地址</td>
-                <td align="left">string</td>
-                <td>无</td>
-                <td align="left">是</td>
             </tr>
         </tbody>
     </table>
