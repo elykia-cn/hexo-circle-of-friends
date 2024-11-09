@@ -1,8 +1,29 @@
 {
   "version": 2,
   "public": true,
-  "routes": [
-        { "src": "/.*", "dest": "api/main.py" }
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/main.py"
+    }
   ],
-  "installCommand": "pip install -r requirements.txt"
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "*"
+        }
+      ]
+    }
+  ]
 }
