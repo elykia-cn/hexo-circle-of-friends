@@ -2,19 +2,16 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/main.py",
+      "src": "api/main.py", 
       "use": "@vercel/python"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/api/main.py"
+      "source": "/(.*)",
+      "destination": "/api/main.py"
     }
   ],
-  "env": {
-    "PYTHON_VERSION": "3.11"
-  },
   "headers": [
     {
       "source": "/(.*)",
@@ -25,14 +22,13 @@
         },
         {
           "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, PUT, DELETE, OPTIONS"
+          "value": "*"
         },
         {
           "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization"
+          "value": "*"
         }
       ]
     }
   ]
 }
-
